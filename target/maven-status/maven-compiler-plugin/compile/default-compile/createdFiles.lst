@@ -1,0 +1,9 @@
+beans\Usuario.class
+controller\UsuarioController.class
+servlets\pruebaServlet.class
+beans\Factura.class
+controller\IUsuarioController.class
+beans\Producto.class
+servlets\ServletUsuarioLogin.class
+beans\Detalle.class
+connection\DBConnection.class
