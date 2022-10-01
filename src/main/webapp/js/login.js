@@ -28,7 +28,7 @@ function autenticarUsuario() {
             if (parsedResult != false) {
                 $("#login-error").addClass("d-none");
                 let email = parsedResult['email'];
-                document.location.href = "home.html?email=" + email;
+                document.location.href = "index.html?email=" + email;
             } else {
                 $("#login-error").removeClass("d-none");
             }

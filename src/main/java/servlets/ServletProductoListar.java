@@ -1,5 +1,6 @@
 package servlets;
 
+import controller.ProductoController;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,19 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.UsuarioController;
+
 
 /**
- * Servlet implementation class ServletUsuarioLogin
+ * Servlet implementation class ServletProductoListar
  */
-@WebServlet("/ServletUsuarioLogin")
-public class ServletUsuarioLogin extends HttpServlet {
+@WebServlet("/ServletProductoListar")
+public class ServletProductoListar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletUsuarioLogin() {
+    public ServletProductoListar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,26 +30,25 @@ public class ServletUsuarioLogin extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-        @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		UsuarioController usuario = new UsuarioController();
-		String email = request.getParameter("email");
-		String contrasena = request.getParameter("contrasena");
-		String result = usuario.login(email, contrasena);
+		ProductoController producto = new ProductoController();
 		
+		
+		
+		String productoStr = producto.listar();
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(result);
+		
+		out.println(productoStr);
 		out.flush();
 		out.close();
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-        @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

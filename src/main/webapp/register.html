@@ -2,6 +2,7 @@
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+class="p-4 d-flex justify-content-center"
 -->
 <html>
     <head>
@@ -13,38 +14,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="https://kit.fontawesome.com/82a1c97255.js" crossorigin="anonymous"></script>
         <script src="js/register.js"></script>
     </head>
     <body>
-        <main class="p-4 d-flex justify-content-center">
-            <div class="card sizeDiv">
-                <form id="form-register" class="pb-4">
-                    <div class="form-group">
-                        <label for="input-email">email</label>
-                        <input type="text" class="form-control" id="input-email" placeholder="email" required>
+        <main >
+            <div class="formulario">
+                <form id="form-register" class="contenedor">
+                    <h1>Registrarse</h1>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <input type="text" class="" id="input-email" placeholder="email" required>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="input-contrasena">contraseña</label>
-                            <input type="password" class="form-control" id="input-contrasena" placeholder="contraseña" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="input-contrasena">contraseña</label>
-                            <input type="password" class="form-control" id="input-contrasena-repeat" placeholder="repetir contraseña" required>
-                        </div>
+                    
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-lock icon"></i>
+                        <input type="password" class="" id="input-contrasena" placeholder="contraseña" required>
                     </div>
-                    <div class="form-group">
-                        <label for="input-nombre">nombre</label>
-                        <input type="text" class="form-control" id="input-nombre" placeholder="Nombre" required>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-lock icon"></i>
+                        <input type="password" class="" id="input-contrasena-repeat" placeholder="repetir contraseña" required>
                     </div>
-                    <div class="form-group">
-                        <label for="input-apellido">Apellido</label>
-                        <input type="text" class="form-control" id="input-apellido" placeholder="Apellido" required>
+                    
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user icon"></i>
+                        <input type="text" class="" id="input-nombre" placeholder="Nombre" required>
                     </div>
-                    <input type="submit" class="btn btn-primary" id="register-btn" value="registrarse"/>
+                    <div class="input-contenedor">
+                        <i class="fa-solid fa-user icon"></i>
+                        <input type="text" class="" id="input-apellido" placeholder="Apellido" required>
+                    </div>
+                    <input type="submit" class="button" id="register-btn" value="registrarse"/>
+                    <p> Al registrarse acepta nuestras politicas y condiciones de privacidad</p>
+                    <p> ¿ Ya tienes cuenta? <a class="link" href="login.html">Iniciar Sesión</a></p>
                 </form>
+                
                 <div id="register-error" class="alert alert-danger d-none" role="alert">El email ya se encuentra registrado</div>
             </div>
-        </main>     
+            
+
+    
+    
+        </main>
+        
     </body>
+    
 </html>
