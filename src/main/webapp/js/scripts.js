@@ -1,3 +1,4 @@
+var email = '';
 var email = new URL(location.href).searchParams.get("email");
 var user;
 const tbody = document.querySelector('.tbody')
@@ -43,7 +44,8 @@ async function getUsuario() {
 
 }
 function getProductos() {
-
+   
+    
     $.ajax({
         type: "GET",
         dataType: "html",
@@ -96,14 +98,23 @@ function mostrarProductos(productos) {
 }
 
 function comprar() {
-
+    let ids = [];
+    let cantidades = [];
+    if(email===''){
+        document.location.href = "login.html";
+    }
+    for(let i =0; i < carrito.length ; i++){
+        ids.push(carrito[i]);
+        cantidades.push(carrito[i]);
+    }
     $.ajax({
         type: "GET",
         dataType: "html",
         url: "./ServletProductoComprar",
         data: $.param({
             email: carrito,
-            carrito: carrito
+            ids:ids,
+            cantidades:cantidades
         }),
         success: function (result) {
             let parsedResult = JSON.parse(result);
@@ -255,3 +266,4 @@ window.onload = function(){
     renderCarrito()
   }
 }
+

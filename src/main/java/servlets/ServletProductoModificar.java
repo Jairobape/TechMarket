@@ -1,31 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package servlets;
 
-import controller.ProductoController;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.ProductoController;
+
 /**
- *
- * @author ASUS
+ * Servlet implementation class ServletUsuarioModificar
  */
-@WebServlet(name = "ServletProductoAgregar", urlPatterns = {"/ServletProductoAgregar"})
-public class ServletProductoComprar extends HttpServlet {
+@WebServlet("/ServletProductoModificar")
+public class ServletProductoModificar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletProductoComprar() {
+    public ServletProductoModificar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,20 +34,24 @@ public class ServletProductoComprar extends HttpServlet {
                 throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ProductoController producto = new ProductoController();
-                
-		String email = request.getParameter("email");
-                String[] ids = request.getParameterValues('ids');
-                String[] cantidades=request.getParameterValue('cantidades');
 		
-		System.out.println(cantidades);
-		String productoStr = producto.comprar(email, ids, cantidades);
+                int idProducto = Integer.parseInt(request.getParameter("id"));
+		String productoN = request.getParameter("producto");
+		String categoria = request.getParameter("categoria");
+		double precio = Double.parseDouble(request.getParameter("precio"));
+		int stock = Integer.parseInt(request.getParameter("stock"));
+		String descripcion = request.getParameter("descripcion");
+		String imagenPath = request.getParameter("imagen");
+	
+		
+		
+		String usuarioStr = producto.modificar(idProducto, productoN, categoria, precio, stock, descripcion, imagenPath);
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(productoStr);
+		out.println(usuarioStr);
 		out.flush();
 		out.close();
-		
 	}
 
 	/**
